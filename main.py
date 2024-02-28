@@ -8,11 +8,12 @@ from os import path
 from re import sub
 
 
-CONFIG_PATH = "./askgem.config"
+CONFIG_PATH = "askgem.config"
 
 try:
     CONFIG = dict(load(open(CONFIG_PATH)))
 except FileNotFoundError:
+    CONFIG = {}
     pass
 
 args, chat = [None for _ in range(2)]
@@ -78,8 +79,10 @@ def config():
 
 def setup_model():
     global chat
-    genai.configure(api_key=CONFIG["key"])
-    
+    try:
+        genai.configure(api_key=CONFIG["key"])
+    except KeyError:
+        raise FileNotFoundError(f"\n\nCannot find the path '{CONFIG_PATH}' \n\nplease run askgem -c $path/for/askgem.config\n")
     model = genai.GenerativeModel(CONFIG.get("model", "gemini-1.0-pro-latest"))
 
     chat = model.start_chat(history=[])

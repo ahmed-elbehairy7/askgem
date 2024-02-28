@@ -2,6 +2,26 @@
 
 ### Project for interacting with gemeni from the terminal
 
+## Table of content:
+
+- [ setup](#setup)
+  - [OS specific](#os-specific)
+    - [Windows](#windows)
+    - [linux](#linux)
+- [askgem.config](#askgemconfig)
+  - [key](#key)
+  - [model](#model)
+  - [you](#you)
+  - [gemeni](#gemeni)
+  - [youInFile and gemeniInFile](#youinfile-and-gemeniinfile)
+- [arguments](#arguments)
+  - [-c, --config-path](#c---config-path-path)
+  - [-q, --question [...]](#q---question)
+  - [-n, --non-interactive](#n---non-interactive)
+  - [-qn, --question-not-interactive](#qn---question-non-interactive)
+  - [-s, --save-file](#s---save-file)
+  - [-l, --list-models](#l---list-models)
+
 ## setup
 
 Just clone the repo by typing this command in your terminal:
@@ -20,7 +40,9 @@ Now you need to install the requirements by typing the following command:
 
 > **NOTE:** I had some problems at this step, hope it goes well with you but I did a lot of troubleshooting here because the google generative ai package wasn't enough, sorry that I don't know what happened exactly so I can't document it
 
-### Windows
+### OS specific
+
+#### Windows
 
 first install the pyinstaller python package with the following command
 
@@ -32,7 +54,7 @@ then run the following command
 
 So basicly this is converting the main.py file to an executable file. the "-F" argument states that the program is just one file, and the "-n" for naming the .exe application. so after running this command you should see two new directories, build and dest, open the dest directory and you will find askgem.exe there, congratulations, it can't find the askgem.config file! [see this](#c---config-path-path)
 
-#### access the app from anywhere
+**access the app from anywhere**
 
 In order to do this you had to add a new environment variable, you can search online for how to do this for more updated info or do the following:
 simply press the windows key and start typing environment variables then click it when it appears, after that go environment variables.
@@ -148,3 +170,5 @@ List gemeni models available, this just print the genai.list_models()
     gemeni-pro
     gemeni-pro-vision
     ...etc.
+
+#### Thanks...
